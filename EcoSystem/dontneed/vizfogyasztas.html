@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myChart" width="400px" height="200px"></canvas>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>const dataURL = "http://localhost/phpmyadmin/index.php?route=/database/structure&db=vizfogyasztas";
+    fetch(dataURL)
+    .then(function(response){
+    console.log(response);
+    return response.json();
+        
+
+    })
+    .then(function(jsonData){
+        console.log(jsonData);
+        const xValues = jsonData.map(function(item){
+            return item.year;
+        })
+        console.log("Évek:", xValues);
+        const yValues = jsonData.map(function(item){
+            return item.residential_consumption;;
+        })
+        console.log("fogyasztás:", yValues);
+        const barColors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {labels: xValues,
+            datesets:[{
+                label:"Lakók fogyasztási adatai",
+                data: yValues,
+                backgroundColor: barColors,
+                
+            }]
+        },
+        options: {
+            title:{
+                display: true,
+                text: "Lakók fogyasztási adatai"
+            }
+        }
+        })
+    });
+    </script>
+</body>
+</html>
