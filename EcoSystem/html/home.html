@@ -1,55 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <title>Adatok Vizualizációja</title>
     <link rel="stylesheet" href="../css/style.css">
-    <title>Home</title>
-    <style>
-        #map {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
+
+    <!-- Navigáció -->
     <nav>
         <ul>
-            <li><a href="../php/home.php">Home</a></li>
-            <li><a href="../php/about.php">About</a></li>
-            <li><a href="../php/contact.php">Contact</a></li>
+            <li><a href="../html/home.html">Kezdőlap</a></li>
+            <li><a href="../php/about.php">Töltő állomások</a></li>
         </ul>
     </nav>
 
-    <h1>Elektromos Autók Töltőállomásai Magyarországon</h1>
-    <div id="map"></div>
+    <h1 id="white">Légy Zöld és Környezettudatos</h1>
 
-    <script>
-        // Térkép inicializálása
-        var map = L.map('map').setView([47.1625, 19.5033], 7); // Magyarország középpont
+    <!-- Diagram -->
+    <div id="chart-container">
+        <section>
+            <h1>Országok Járműtípusainak Megoszlása</h1>
+            <select id="countrySelect"></select>
+        </section>
+        <canvas id="chart"></canvas>
+    </div>
 
-        // OpenStreetMap csempe hozzáadása
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+    <!-- Lábléc -->
+    <footer>
+        <div class="content">
+            <div class="link-boxes">
+                <ul class="box">
+                    <li class="link_name">Links</li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Székhely</a></li>
+                    <li><a href="#">Telefon szám</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">További információk</li>
+                    <li><a href="#">Kapcsolat</a></li>
+                    <li><a href="#">Impresszum</a></li>
+                    <li><a href="#">Gyakori kérdések</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Adatvédelmi Szabályzat</li>
+                    <li><a href="#">Adatvédelem</a></li>
+                    <li><a href="#">ÁSZF</a></li>
+                    <li><a href="#">Jogi Nyilatkozat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2021 <a href="#">Légy Zöld</a></span>
+                <span class="policy_terms">
+                    <a href="#">Privacy Policy</a>
+                    <div class="credit">Made with <span style="color:tomato">❤</span> by <a href="https://www.legyzold.hu/">Légy Zöld</a></div>
+                </span>
+            </div>
+        </div>
+    </footer>
+    
 
-        // Elektromos töltőállomások példák
-        var locations = [
-            { lat: 47.498, lng: 19.04, name: "Budapest Töltőállomás" },
-            { lat: 46.253, lng: 20.148, name: "Szeged Töltőállomás" },
-            { lat: 47.902, lng: 19.041, name: "Gyöngyös Töltőállomás" },
-            { lat: 46.845, lng: 16.841, name: "Zalaegerszeg Töltőállomás" }
-        ];
-
-        // Marker hozzáadása a térképhez
-        locations.forEach(function(location) {
-            L.marker([location.lat, location.lng])
-                .addTo(map)
-                .bindPopup(location.name)
-                .openPopup();
-        });
-    </script>
+    <script src="../script/script.js"></script>
 </body>
+
 </html>
