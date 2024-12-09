@@ -89,20 +89,29 @@ select {
     display: flex;
     justify-content: center; /* Center the chart container */
     padding: 20px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: auto;
 
 }
 
 .chart-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
     align-items: center;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 1rem;
-    max-width: 80%; /* Restrict the width for better appearance */
+    gap: 3rem;
+    margin: auto;
+    height: 300px;
+
+   
 }
+
 
 /*.charts {
     display: flex;
@@ -113,9 +122,16 @@ select {
 }*/
 
 #chart, #chart2 {
-    width: 40%; /* Make each chart take up half of the available width */
-    height: 250px; /* Adjust height for better visibility */
-    justify-content: center;
+   width: 100% !important;
+   height: 100% !important;
+}
+#chart{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+#chart2{
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
 /* Reszponzív módosítások */
@@ -135,6 +151,23 @@ select {
     .container {
         padding: 10px; /* Reduced padding for smaller screens */
     }
+    .chart-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+        margin: auto;
+        height: 600px;  
+    }
+    #chart{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    #chart2{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
 }
 
 
@@ -146,6 +179,8 @@ footer {
     padding: 1rem 0;
     bottom: 0;
     width: 100%;
+    position: absolute ;
+    bottom: 0;
 }
 
 footer .link-boxes {

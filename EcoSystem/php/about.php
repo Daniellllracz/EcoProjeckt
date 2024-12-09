@@ -70,6 +70,7 @@
 </section>
 
 
+
     <script>
         // Térkép inicializálása
         var map = L.map('map').setView([47.1625, 19.5033], 7); // Magyarország középpont
@@ -195,6 +196,7 @@
 ];
 
     </script>
+    
 </body>
 
 </html>
