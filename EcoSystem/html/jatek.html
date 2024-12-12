@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektromos Autó Játék</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    
+    
+    <nav>
+        <ul>
+            <li><a href="../index.html">Kezdőlap</a></li>
+            <li><a href="../html/about.html">Töltő állomások</a></li>
+            <li><a href="../html/jatek.html">Játék</a></li>
+        </ul>
+    </nav>
+    <div id="game-container">
+        <div id="start-screen">
+            <h1>Elektromos Autó Játék</h1>
+            <button id="start-button">Indítás</button>
+        </div>
+        
+        <div id="hud">
+            <div id="score">Távolság: 0 km</div>
+            <div id="energy-container">
+                <div id="energy-bar"></div>
+            </div>
+        </div>
+        <canvas id="game-canvas"></canvas>
+        <div id="game-over" style="display: none;">
+            <h1>Game Over</h1>
+            <button id="restart-button">Újraindítás</button>
+        </div>
+    </div>
+    </div>
+    <script src="../script/script2.js"></script>
+</body>
+</html>

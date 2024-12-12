@@ -27,15 +27,13 @@ p {
 nav {
     background-color: #008000; /* Zöld navigáció */
     padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
     margin: 0;
     padding: 0;
 }
@@ -50,6 +48,12 @@ nav ul li a {
     font-weight: 500;
     font-size: 1.2rem;
     transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    filter: blur(2px);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 #searchBox {
